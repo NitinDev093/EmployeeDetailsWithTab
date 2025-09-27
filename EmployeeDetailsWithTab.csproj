@@ -181,7 +181,6 @@
     <Content Include="Views\Employee\_CTCDetails.cshtml" />
     <Content Include="Views\Employee\_EducationDetails.cshtml" />
     <Content Include="Views\Employee\_ExperianceDetails.cshtml" />
-    <Content Include="Views\Employee\_FamilyDetails.cshtml" />
     <Content Include="Views\Employee\_OtherDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
