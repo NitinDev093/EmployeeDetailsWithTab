@@ -1,0 +1,44 @@
+﻿
+<h1>Basic Information</h1>
+
+<input type="text" id="ifsccode" onblur="GetBankDetailsByIFSCCode()">
+<button type="button" onclick="insertbasicinformation()">Submit</button>
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    function insertbasicinformation() {
+
+        $.ajax({
+            type: "POST",
+            url: '/Home/InsertBasicInfromation',
+            contentType: "application/json; charset=utf-8",
+        });
+
+    }
+
+   function GetBankDetailsByIFSCCode(){
+
+       $.ajax({
+           url: "https://ifsc.razorpay.com/" + $("#ifsccode").val(),
+           type: "GET",
+           dataType: "json",
+           success: function (data) {
+               console.log(data);
+           },
+           error: function () {
+               $("#result").html("<p style='color:red;'>Invalid IFSC or API error.</p>");
+           }
+       });
+    }
+
+</script>

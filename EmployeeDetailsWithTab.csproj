@@ -120,7 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,14 +174,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\_BasicInformation.cshtml" />
-    <Content Include="Views\Home\_EducationDetails.cshtml" />
-    <Content Include="Views\Home\_ExperianceDetails.cshtml" />
-    <Content Include="Views\Home\_CTCDetails.cshtml" />
-    <Content Include="Views\Home\_FamilyDetails.cshtml" />
-    <Content Include="Views\Home\_AddressDetails.cshtml" />
-    <Content Include="Views\Home\_OtherDetails.cshtml" />
+    <Content Include="Views\Employee\EmployeeCreation.cshtml" />
+    <Content Include="Views\Employee\_AddressDetails.cshtml" />
+    <Content Include="Views\Employee\_BankDetails.cshtml" />
+    <Content Include="Views\Employee\_BasicInformation.cshtml" />
+    <Content Include="Views\Employee\_CTCDetails.cshtml" />
+    <Content Include="Views\Employee\_EducationDetails.cshtml" />
+    <Content Include="Views\Employee\_ExperianceDetails.cshtml" />
+    <Content Include="Views\Employee\_FamilyDetails.cshtml" />
+    <Content Include="Views\Employee\_OtherDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

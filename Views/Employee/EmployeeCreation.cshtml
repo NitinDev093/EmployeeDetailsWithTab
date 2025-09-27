@@ -1,10 +1,13 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "EmployeeCreation";
 }
+
+
 <div class="d-flex justify-content-end" style="height:50px;">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Add New Employee
-</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add New Employee
+    </button>
 </div>
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -14,7 +17,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
+
                 <main>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -38,30 +41,36 @@
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#tab7-content" role="tab">Other Details</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab8-content" role="tab">Bank Details</a>
+                        </li>
                     </ul>
 
                     <div class="tab-content mt-3" id="myTabContent">
                         <div class="tab-pane fade show active" id="tab1-content" role="tabpanel">
-                            @Html.Action("BasicInformation")
+                            @Html.Partial("_BasicInformation")
                             @* jo double quote me hai wo mere partial action method ka name hai *@
                         </div>
                         <div class="tab-pane fade" id="tab2-content" role="tabpanel">
-                            @Html.Action("EducationDetails")
+                            @Html.Partial("_EducationDetails")
                         </div>
                         <div class="tab-pane fade" id="tab3-content" role="tabpanel">
-                            @Html.Action("ExperianceDetails")
+                            @Html.Partial("_ExperianceDetails")
                         </div>
                         <div class="tab-pane fade" id="tab4-content" role="tabpanel">
-                            @Html.Action("CTCDetails")
+                            @Html.Partial("_CTCDetails")
                         </div>
                         <div class="tab-pane fade" id="tab5-content" role="tabpanel">
-                            @Html.Action("FamilyDetails")
+                            @Html.Partial("_FamilyDetails")
                         </div>
                         <div class="tab-pane fade" id="tab6-content" role="tabpanel">
-                            @Html.Action("AddressDetails")
+                            @Html.Partial("_AddressDetails")
                         </div>
                         <div class="tab-pane fade" id="tab7-content" role="tabpanel">
-                            @Html.Action("OtherDetails")
+                            @Html.Partial("_OtherDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab8-content" role="tabpanel">
+                            @Html.Partial("_BankDetails")
                         </div>
                     </div>
                 </main>

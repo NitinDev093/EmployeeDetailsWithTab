@@ -46,5 +46,9 @@ namespace EmployeeDetailsWithTab.Controllers
         {
             return PartialView("_OtherDetails");
         }
+        public PartialViewResult BankDetails()
+        {
+            return PartialView("_Details");
+        }
     }
 }
