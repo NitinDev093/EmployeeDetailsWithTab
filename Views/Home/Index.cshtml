@@ -1,57 +1,79 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div class="d-flex justify-content-end" style="height:50px;">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Add New Employee
+</button>
+</div>
 
-<main>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <main>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab1-content" role="tab">Basic Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab2-content" role="tab">Education Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab3-content" role="tab">Experiance Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab4-content" role="tab">CTC Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab5-content" role="tab">Family Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab6-content" role="tab">Address Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#tab7-content" role="tab">Other Details</a>
+                        </li>
+                    </ul>
 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#tab1-content" role="tab">Basic Information</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab2-content" role="tab">Education Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab3-content" role="tab">Experiance Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab4-content" role="tab">CTC Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab5-content" role="tab">Family Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab6-content" role="tab">Address Details</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab7-content" role="tab">Other Details</a>
-        </li>
-    </ul>
+                    <div class="tab-content mt-3" id="myTabContent">
+                        <div class="tab-pane fade show active" id="tab1-content" role="tabpanel">
+                            @Html.Action("BasicInformation")
+                            @* jo double quote me hai wo mere partial action method ka name hai *@
+                        </div>
+                        <div class="tab-pane fade" id="tab2-content" role="tabpanel">
+                            @Html.Action("EducationDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab3-content" role="tabpanel">
+                            @Html.Action("ExperianceDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab4-content" role="tabpanel">
+                            @Html.Action("CTCDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab5-content" role="tabpanel">
+                            @Html.Action("FamilyDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab6-content" role="tabpanel">
+                            @Html.Action("AddressDetails")
+                        </div>
+                        <div class="tab-pane fade" id="tab7-content" role="tabpanel">
+                            @Html.Action("OtherDetails")
+                        </div>
+                    </div>
+                </main>
 
-
-    <div class="tab-content mt-3" id="myTabContent">
-        <div class="tab-pane fade show active" id="tab1-content" role="tabpanel">
-            @Html.Action("BasicInformation")
-        </div>
-        <div class="tab-pane fade" id="tab2-content" role="tabpanel">
-            @Html.Action("EducationDetails")
-        </div>
-        <div class="tab-pane fade" id="tab3-content" role="tabpanel">
-            @Html.Action("ExperianceDetails")
-        </div>
-        <div class="tab-pane fade" id="tab4-content" role="tabpanel">
-            @Html.Action("CTCDetails")
-        </div>
-        <div class="tab-pane fade" id="tab5-content" role="tabpanel">
-            @Html.Action("FamilyDetails")
-        </div>
-        <div class="tab-pane fade" id="tab6-content" role="tabpanel">
-            @Html.Action("AddressDetails")
-        </div>
-        <div class="tab-pane fade" id="tab7-content" role="tabpanel">
-            @Html.Action("OtherDetails")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
         </div>
     </div>
+</div>
 
 
-</main>
