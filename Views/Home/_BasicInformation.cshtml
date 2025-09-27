@@ -1,0 +1,28 @@
+﻿
+<h1>Basic Information</h1>
+
+<button type="button" onclick="insertbasicinformation()">Submit</button>
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    function insertbasicinformation() {
+
+        $.ajax({
+            type: "POST",
+            url: '/Home/InsertBasicInfromation',
+            contentType: "application/json; charset=utf-8",
+        });
+
+    }
+
+</script>

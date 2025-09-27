@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#tab1-content" role="tab">Basic Information</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab2-content" role="tab">Education Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab3-content" role="tab">Experiance Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab4-content" role="tab">CTC Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab5-content" role="tab">Family Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab6-content" role="tab">Address Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab7-content" role="tab">Other Details</a>
+        </li>
+    </ul>
+
+
+    <div class="tab-content mt-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab1-content" role="tabpanel">
+            @Html.Action("BasicInformation")
+        </div>
+        <div class="tab-pane fade" id="tab2-content" role="tabpanel">
+            @Html.Action("EducationDetails")
+        </div>
+        <div class="tab-pane fade" id="tab3-content" role="tabpanel">
+            @Html.Action("ExperianceDetails")
+        </div>
+        <div class="tab-pane fade" id="tab4-content" role="tabpanel">
+            @Html.Action("CTCDetails")
+        </div>
+        <div class="tab-pane fade" id="tab5-content" role="tabpanel">
+            @Html.Action("FamilyDetails")
+        </div>
+        <div class="tab-pane fade" id="tab6-content" role="tabpanel">
+            @Html.Action("AddressDetails")
+        </div>
+        <div class="tab-pane fade" id="tab7-content" role="tabpanel">
+            @Html.Action("OtherDetails")
+        </div>
+    </div>
+
+
+</main>
