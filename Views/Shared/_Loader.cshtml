@@ -1,0 +1,26 @@
+﻿<!-- Loader HTML -->
+<div id="loader" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(255,255,255,0.7); z-index:9999; text-align:center;">
+
+    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <div class="spinner-border text-primary" role="status" style="width: 4rem; height: 4rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p style="margin-top:10px;">Please wait...</p>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    function showloader() {
+        $("#loader").show();
+    }
+
+    function hideloader() {
+        $("#loader").hide();
+    }
+
+</script>

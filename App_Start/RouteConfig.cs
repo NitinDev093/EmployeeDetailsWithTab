@@ -16,7 +16,7 @@ namespace EmployeeDetailsWithTab
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Employee", action = "EmployeeCreation", id = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "SignIn", id = UrlParameter.Optional }
             );
         }
     }

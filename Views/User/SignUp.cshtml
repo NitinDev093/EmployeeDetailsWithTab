@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+@* Toaster Css *@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center text-primary fw-bold mb-4">Create Account</h3>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="firstname" placeholder="First Name" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="lastname" placeholder="Last Name" required>
+                </div>
+                <div class="col-12">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                </div>
+                <div class="col-12">
+                    <input type="tel" class="form-control" id="mobile" placeholder="Mobile Number" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" id="conpassword" placeholder="Confirm Password" required>
+                </div>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="button" class="btn btn-primary btn-lg" onclick="insertuserdata()">Sign Up</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <small>
+                    Already have an account?
+                    <a href="/User/SignIn" class="fw-semibold text-decoration-none">Sign In</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    
+    function insertuserdata() {
+        var firstname = $("#firstname").val();
+        var lastname = $("#lastname").val();
+        var email = $("#email").val();
+        var mobilenumber = $("#mobile").val();
+        var password = $("#password").val();
+        var confirmpassword = $("#conpassword").val();
+
+        $.ajax({
+            type: "POST",
+            url: '/User/InsertUserSignData',
+            data: JSON.stringify({
+                FirstName: firstname,
+                LastName: lastname,
+                Email: email,
+                MobileNumber: mobilenumber,
+                Password: password,
+                ConfirmPassword: confirmpassword
+            }),
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+                showloader();
+            },
+            success: function (response) {
+                if (response.success) {
+                    toastr.success(response.message ,"Your Referance id send To Your Mail");
+                    //toastr.warning(response.message); it is used in else case
+                    setTimeout(function () {
+                        window.location.href = "/User/SignIn";
+                    }, 2000);
+                }
+                
+            },
+            error: function () {
+                toastr.error("Internal Server Error");
+            },
+            complete: function () {
+                hideloader();
+            }
+        });
+    }
+
+
+</script>
+
+
+
+
+
+
+

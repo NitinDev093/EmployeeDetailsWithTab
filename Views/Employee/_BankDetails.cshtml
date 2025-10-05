@@ -1,1 +1,105 @@
 ﻿
+<div class="container">
+    <form class="needed-validation" novalidate>
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>Account Number</label>
+                <input type="number" id="txtaccountnumber" class="form-control w-100" placeholder="Account Number" autofocus="" required="" />
+            </div>
+            <div class="col-lg-4">
+                <label>Account Holder Name</label>
+                <input type="text" id="txtaccountholder" class="form-control w-100" placeholder="Account Holder name" autofocus="" required="" />
+            </div>
+            <div class="col-lg-4">
+                <label>IFSC Code</label>
+                <input type="text" id="ifsccode" class="form-control w-100" onblur="GetBankDetailsByIFSCCode()" autofocus="" required="" />
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>Branch</label>
+                <input type="text" id="txtbranch" class="form-control w-100" placeholder="Branch" autofocus="" required="" readonly />
+            </div>
+            <div class="col-lg-4">
+                <label>Address</label>
+                <input type="text" id="txtaddress" class="form-control w-100" placeholder="Address" autofocus="" required="" readonly/>
+            </div>
+            <div class="col-lg-4">
+                <label>State</label>
+                <input type="text" id="txtstate" class="form-control w-100" placeholder="State" autofocus="" required=""  readonly/>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>City</label>
+                <input type="text" id="txtcity" class="form-control w-100" placeholder="City" autofocus="" required="" readonly/>
+            </div>
+            <div class="col-lg-4">
+                <label>Bank</label>
+                <input type="text" id="txtbank" class="form-control w-100" placeholder="BankName" autofocus="" required="" readonly/>
+            </div>
+            <div class="col-lg-4">
+                <label>Bankcode</label>
+                <input type="text" id="txtbankcode" class="form-control w-100" placeholder="BankCode" autofocus="" required="" readonly/>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning">Reset</button>
+            <button type="button" class="btn btn-primary" onclick="insertbankdetails()">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script type="text/javascript">
+
+    function insertbankdetails() {
+        var form = document.querySelector('.needed-validation');
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            form.classList.add('was-validated');
+            return false;
+        }
+
+        var accountnumber = $("#txtaccountnumber").val();
+        var accountholder = $("#txtaccountholder").val();
+        if (!/^\d{12}$/.test($("#txtaccountnumber").val())) {
+            alert("Account number must be exactly 12 digits!");
+            $("#txtaccountnumber").focus();
+            return false;
+        }
+        if (!/^[A-Za-z\s]+$/.test(accountholder)) {
+            alert("Account Holder Name must contain only letters!");
+            $("#txtaccountholder").focus();
+            return false;
+        }
+
+        
+    }
+
+    function GetBankDetailsByIFSCCode() {
+
+        $.ajax({
+            url: "https://ifsc.razorpay.com/" + $("#ifsccode").val(),
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $("#txtbranch").val(data.BRANCH);
+                $("#txtaddress").val(data.ADDRESS);
+                $("#txtstate").val(data.STATE);
+                $("#txtcity").val(data.CITY);
+                $("#txtbank").val(data.BANK);
+                $("#txtbankcode").val(data.BANKCODE);
+            },
+            error: function () {
+                alert("Invalid IFSC code!");
+            }
+        });
+    }
+
+</script>
+
+

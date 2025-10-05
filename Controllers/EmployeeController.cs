@@ -13,5 +13,9 @@ namespace EmployeeDetailsWithTab.Controllers
         {
             return View();
         }
+        public ActionResult InsertEmployee()
+        {
+            return null;
+        }
     }
 }

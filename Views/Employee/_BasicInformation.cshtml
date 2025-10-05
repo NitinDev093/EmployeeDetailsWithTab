@@ -1,44 +1,90 @@
 ﻿
-<h1>Basic Information</h1>
+<div class="container">
+    <form class="needs-validation" novalidate>
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>FirstName</label>
+                <input type="text" id="txtFirstname" class="form-control w-100" placeholder="First name" autofocus="" required="" />
+            </div>
 
-<input type="text" id="ifsccode" onblur="GetBankDetailsByIFSCCode()">
-<button type="button" onclick="insertbasicinformation()">Submit</button>
+            <div class="col-lg-4">
+                <label>LastName</label>
+                <input type="text" id="txtLastname" class="form-control w-100" placeholder="Last name" autofocus="" required="" />
+            </div>
+
+            <div class="col-lg-4">
+                <label>DOB</label>
+                <input type="date" id="txtdob" class="form-control text-muted w-100" name="date" autofocus="" required="" />
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>Gender</label>
+                <select id="ddlgender" class="form-control w-100 text-muted" required>
+                    <option value="" disabled selected>--Select Gender--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="col-lg-4">
+                <label>Phone</label>
+                <input type="number" id="phonenumber" class="form-control w-100" placeholder="Mobile Number" autofocus="" required="" />
+            </div>
+
+            <div class="col-lg-4">
+                <label>Email</label>
+                <input type="email" id="emailaddress" class="form-control w-100" placeholder="Email Address" autofocus="" required="" />
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-lg-4">
+                <label>Department</label>
+                <input type="text" id="txtdepartment" class="form-control w-100" placeholder="Department" autofocus="" required="" />
+            </div>
+            <div class="col-lg-4">
+                <label>HireDate</label>
+                <input type="date" id="hiredate" class="form-control w-100" placeholder="Hire Date" autofocus="" required="" />
+            </div>
+            <div class="col-lg-4">
+                <label>Salary</label>
+                <input type="text" id="txtsalary" class="form-control w-100" placeholder="Salary" autofocus="" required="" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-warning">Reset</button>
+            <button type="button" class="btn btn-primary" onclick="insertbasicinformation()">Save Changes</button>
+        </div>
+    </form>
+</div>
 
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 
+    $(document).ready(function () {
+
+       
+
     function insertbasicinformation() {
+        var form = document.querySelector('.needs-validation');
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            form.classList.add('was-validated');
+            return false;
+        }
 
-        $.ajax({
-            type: "POST",
-            url: '/Home/InsertBasicInfromation',
-            contentType: "application/json; charset=utf-8",
-        });
+
 
     }
 
-   function GetBankDetailsByIFSCCode(){
 
-       $.ajax({
-           url: "https://ifsc.razorpay.com/" + $("#ifsccode").val(),
-           type: "GET",
-           dataType: "json",
-           success: function (data) {
-               console.log(data);
-           },
-           error: function () {
-               $("#result").html("<p style='color:red;'>Invalid IFSC or API error.</p>");
-           }
-       });
-    }
+
 
 </script>
