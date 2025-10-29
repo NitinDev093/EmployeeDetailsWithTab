@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 
 namespace EmployeeDetailsWithTab.BusinessLayer
@@ -53,6 +54,24 @@ namespace EmployeeDetailsWithTab.BusinessLayer
                 responnse.Message = "Invalid Email or Password";
             }
             return responnse;
+        }
+
+        public UserResponseModel<string> ResetUserPassword(string Email,string NewPassword,string ConfirmPassword)
+        {
+            UserResponseModel<string> response=new UserResponseModel<string>();
+            NewPassword = EncodeDecodeHelper.EncodedData(NewPassword);
+            int result = user.ResetUserPassword(Email,NewPassword, ConfirmPassword);
+            if(result>0){
+                EmailHelper.SendEmail(Email,"Password Reset Successfully","Your new password is:"+NewPassword);
+                response.IsSuccess = true;
+                response.Message = "Password Reset Successfully";
+            }
+            else
+            {
+                response.IsSuccess= false;
+                response.Message = "User Not Found";
+            }
+            return response;
         }
     }
 }

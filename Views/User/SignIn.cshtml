@@ -1,8 +1,13 @@
 ﻿
 @{
     ViewBag.Title = "SignIn";
+    Layout = null;
 }
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+@Html.Partial("_Loader");
+
 
 
 <div class="container-fluid">
@@ -38,10 +43,10 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript">
 
-    
+
     function signInuser() {
         var email = $("#email").val();
         var password = $("#password").val();

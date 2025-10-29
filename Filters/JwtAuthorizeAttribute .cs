@@ -2,11 +2,9 @@
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 
 namespace EmployeeDetailsWithTab.Filters
@@ -66,6 +64,7 @@ namespace EmployeeDetailsWithTab.Filters
             }
             catch
             {
+               // filterContext.Controller.TempData["ErrorMessage"] = "Invalid username Or Password";
                 filterContext.Result = new RedirectResult("/User/SignIn");
             }
         }

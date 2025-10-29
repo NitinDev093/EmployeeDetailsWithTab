@@ -46,6 +46,20 @@ namespace EmployeeDetailsWithTab.Service
                 return dt;
             }
         }
+        public int ResetUserPassword(string Email,string NewPassword, string ConfirmPassword)
+        {
+            using (SqlConnection sqlcon=new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("usp_resetuserpassword", sqlcon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Email", Email);
+                cmd.Parameters.AddWithValue("@NewPassword", NewPassword);
+                cmd.Parameters.AddWithValue("@ConfirmPassword",ConfirmPassword);
+                sqlcon.Open() ;
+                int result = cmd.ExecuteNonQuery();
+                return result;
+            }
+        }
 
     }
 }

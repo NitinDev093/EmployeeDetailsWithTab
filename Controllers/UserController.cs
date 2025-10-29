@@ -68,7 +68,17 @@ namespace EmployeeDetailsWithTab.Controllers
         {
             return View();
         }
-
-
+        public ActionResult ResetUserPassword(string Email,string NewPassword,string ConfirmPassword)
+        {
+            try
+            {
+                var response = user.ResetUserPassword(Email,NewPassword,ConfirmPassword);
+                return Json(new { success = response.IsSuccess, message = response.Message }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
